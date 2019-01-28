@@ -1,0 +1,36 @@
+body{
+    background-color: #eeeeee;
+}
+.logo-ada{
+    height: 34px;
+    margin-right: 15px;
+}
+.search-bar-container{
+    display: flex;
+    background-color: #c1235c;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+}
+.search-input{
+    height: 34px;
+    width: 65%;
+    border: 0;
+    box-sizing: border-box;
+    border-radius: 2px;
+
+}
+
+.search-icon-container{
+    background-color: #eeeeee;
+    height: 34px;
+    width: 40px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+}
