@@ -3,6 +3,7 @@ var router = express.Router();
 const axios = require('axios');
 
 
+// Para testear esta ruta http://localhost:8080/api/items?q=busqueda
 router.get('/items', function(req, res, next) {
   const q = req.query.q;
 
@@ -47,7 +48,7 @@ router.get('/items', function(req, res, next) {
 });
 });
 
-
+// Para testear esta ruta http://localhost:8080/api/items/
 router.get('/items/:id', function(req, res, next){
   const id =  req.params.id
 

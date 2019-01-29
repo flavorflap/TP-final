@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Breadcrumb from './breadcrumb'
 import '../stylesheets/detail.css'
 
 class Detail extends Component {
@@ -23,15 +24,10 @@ class Detail extends Component {
         if (this.state.loading){
             return <p>Cargando la información...</p>
         }
-        const breadcrumb = this.state.product.categories.map(c => {
-            return <li className='detail breadcrum-item'>{c}</li>
-        })
     
         return ( 
             <div className='detail-container'>
-                <ul className='detail breadcrumb-container'>
-                {breadcrumb}
-                </ul>
+              <Breadcrumb categories={this.state.product.categories}/>
                 <div className='detail product-container'>
                     <div className='detail top-container'>
                         <div className='detail product-image-container'>

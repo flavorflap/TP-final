@@ -10,13 +10,14 @@ class Items extends Component {
         this.state = {  
             category:'',
             results: [],
+            q: queryString.parse(this.props.location.search),
             loading:true
         }
     }
     componentDidMount(){
-        const search = queryString.parse(this.props.location.search)
-        fetch(`http://localhost:8080/api/items?q=${search.search}`)
-        //?search=' + this.props.match.query.search
+        // const q = queryString.parse(this.props.location.search)
+        fetch(`http://localhost:8080/api/items?q=${this.state.q.search}`)
+        //fetch(`http://localhost:8080/api/items?q=${q.search}`)
         .then(res => res.json())
         .then(data =>
             this.setState({

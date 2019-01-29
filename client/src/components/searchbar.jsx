@@ -2,17 +2,20 @@ import React, { Component } from 'react';
 import AdaIsoBlanco from '../assets/Ada_Iso_Blanco.png'
 import SearchIcon from '../assets/Icono_Search.png'
 import '../stylesheets/header.css'
-import {Link} from 'react-router-dom'
+import { Link} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
-class Header extends Component {
+
+class SearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
             newSearch:''
           }
-        // this.handleOnClickSearch = this.handleOnClickSearch.bind(this)
+    
         this.handleOnChangeInput = this.handleOnChangeInput.bind(this)
         this.handleOnClick = this.handleOnClick.bind(this)
+        this.handleKeyPress = this.handleKeyPress.bind(this)
     }
     handleOnChangeInput(e){
         this.setState({
@@ -24,12 +27,21 @@ class Header extends Component {
             newSearch: ''
         })
     }
+
+    handleKeyPress(e){
+        if (e.which == 13){
+            this.props.history.push(`/items?search=${this.state.newSearch}`)
+            this.setState({
+                newSearch: ''
+            })
+        }
+    }
     
     render() { 
         return (
             <div className='search-bar-container'>
                 <Link to='/'><img src={AdaIsoBlanco} className='logo-ada' alt='logo ADA'></img></Link>
-                <input value={this.state.newSearch} type='text' onChange={this.handleOnChangeInput} placeholder="Nunca dejes de buscar" className='search-input'/>
+                <input value={this.state.newSearch} type='text' onChange={this.handleOnChangeInput} onKeyPress={this.handleKeyPress} placeholder="Nunca dejes de buscar" className='search-input'/>
                 <Link to={`/items?search=${this.state.newSearch}`}>
                     <div className='search-icon-container' > 
                     <img src={SearchIcon} onClick={this.handleOnClick} alt='search icon' className='search-icon' />
@@ -40,4 +52,4 @@ class Header extends Component {
          );
         }
     }
-export default Header;
+export default withRouter (SearchBar);
