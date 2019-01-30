@@ -11,7 +11,8 @@ class Items extends Component {
       category: "",
       results: [],
       q: queryString.parse(this.props.location.search),
-      loading: true
+      loading: true,
+      hasError: false
     };
   }
 
@@ -25,7 +26,12 @@ retrieveItem (search) {
         results: data.items,
         loading: false
       })
-    );
+    )
+    .catch(() => {
+     this.setState({
+         hasError: true
+     })
+    })
   }
 
 
@@ -44,6 +50,14 @@ retrieveItem (search) {
   }
 
   render() {
+    if (this.state.hasError){
+        return (
+            <div>
+                <p className='error-message'>OOPS! ALGO ANDA MAL! :S <br></br>
+                (yo no fui => 🐀)</p>
+            </div>
+            )
+    }
     if (this.state.loading) {
       return <p>Cargando los productos...</p>;
     }
@@ -57,12 +71,11 @@ retrieveItem (search) {
           <div className="info-container">
             <div className="price-container">
               <span>$ {product.price.amount}</span>
-              {product.price.decimals == 0 ? (
-                <span className="price-decimals">00</span>
+              {parseInt(product.price.decimals) === 0 ? (
+                <sup className="price-decimals">00</sup>
               ) : (
-                <span className="price-decimals">{product.price.decimals}</span>
+                <sup className="price-decimals">{product.price.decimals}</sup>
               )}
-              
                 {product.free_shipping  && (
                 <span className="free-shipping">
                   <img src={IconoEnvio} alt="envio gratis" />

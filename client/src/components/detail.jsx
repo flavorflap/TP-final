@@ -16,36 +16,49 @@ class Detail extends Component {
         .then(data => {
             this.setState({
                 product: data,
-                loading: false
+                loading: false,
+                hasError: false
             })
+        })
+        .catch(err => {
+            console.log(err + 'Algo no anda bien')
         })
     }
     render() { 
+
+        if (this.state.hasError){
+            return (
+                <div>
+                    <p className='error-message'>OOPS! ALGO ANDA MAL! :S <br></br>
+                    (yo no fui => 🐀)</p>
+                </div>
+                )
+        }
         if (this.state.loading){
             return <p>Cargando la información del producto...</p>
         }
-    
+        const product= this.state.product.item
         return ( 
             <div className='detail-container'>
               <Breadcrumb categories={this.state.product.categories}/>
                 <div className='detail product-container'>
                     <div className='detail top-container'>
                         <div className='detail product-image-container'>
-                            <img src={this.state.product.item.picture} alt={this.state.product.item.title} className='detail product-image'/>
+                            <img src={product.picture} alt={product.title} className='detail product-image'/>
                         </div>
                         <div className='detail info-container'>
-                            <span className='detail condition-sold-quantity'>{this.state.product.item.condition} - {this.state.product.item.sold_quantity} vendidos</span>
-                            <p className='detail product-title'>{this.state.product.item.title}</p>
+                            <span className='detail condition-sold-quantity'>{product.condition} - {product.sold_quantity} vendidos</span>
+                            <p className='detail product-title'>{product.title}</p>
                             <div className='detail price-container'>
-                                <span className='detail product-price'>$ {this.state.product.item.price.amount}</span>
-                                {(this.state.product.item.price.decimals == 0)?<span className='price-decimals'>00</span>:<span className='price-decimals'>{this.state.product.item.price.decimals}</span>}
+                                <span className='detail product-price'>$ {product.price.amount}</span>
+                                {(parseInt(product.price.decimals) === 0)?<sup className='detail price-decimals'>00</sup>:<sup className='price-decimals'>{product.price.decimals}</sup>}
                             </div>
                             <button className='detail buy-btn'>Comprar</button>
                         </div>
                     </div>
                     <div className='detail description-container'>
                             <p className='detail description-title'>Descripción de Producto</p>
-                            <p className='detail description'>{this.state.product.item.description}</p>
+                            <p className='detail description'>{product.description}</p>
                     </div>
                 </div> 
             </div>

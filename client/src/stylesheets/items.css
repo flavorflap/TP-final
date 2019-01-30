@@ -67,3 +67,24 @@ a{
     text-decoration: none;
     font-size: 18px;
 }
+.error-message{
+    font-size: 50px;
+    color: red;
+    background-color: black;
+}
+
+@media (max-width: 600px) {
+
+    .title-container{
+        text-align: left;
+        width: 90%;
+        text-decoration: none;
+        font-size: 15px;
+    }   
+    .item-container{
+        width: 90%;
+    }
+    .main-category{
+        margin-left: 15px;
+    }
+}

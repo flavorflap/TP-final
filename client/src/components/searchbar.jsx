@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AdaIsoBlanco from '../assets/Ada_Iso_Blanco.png'
 import SearchIcon from '../assets/Icono_Search.png'
-import '../stylesheets/header.css'
+import '../stylesheets/searchbar.css'
 import { Link} from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 
@@ -23,17 +23,23 @@ class SearchBar extends Component {
         })
     }
     handleOnClick(){
-        this.setState({
-            newSearch: ''
-        })
-    }
-
-    handleKeyPress(e){
-        if (e.which == 13){
-            this.props.history.push(`/items?search=${this.state.newSearch}`)
+        const {newSearch} = this.setState
+        if(newSearch.trim() !== ''){
             this.setState({
                 newSearch: ''
             })
+        }
+    }
+
+    handleKeyPress(e){
+        const {newSearch} = this.state
+        if(newSearch.trim() !== ''){
+            if (e.which === 13){
+                this.props.history.push(`/items?search=${this.state.newSearch}`)
+                this.setState({
+                    newSearch: ''
+                })
+            }
         }
     }
     
