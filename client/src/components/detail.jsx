@@ -22,7 +22,7 @@ class Detail extends Component {
     }
     render() { 
         if (this.state.loading){
-            return <p>Cargando la información...</p>
+            return <p>Cargando la información del producto...</p>
         }
     
         return ( 

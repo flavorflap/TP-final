@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
+import SearchBar from './components/searchbar';
 import Items from './components/items'
 import Detail from './components/detail'
 import { BrowserRouter, Route } from 'react-router-dom'
-import SearchBar from './components/searchbar';
+
 
 class App extends Component {
   render() {
