@@ -78,10 +78,13 @@ a{
         text-align: left;
         width: 90%;
         text-decoration: none;
-        font-size: 15px;
+        font-size: 20px;
     }   
     .item-container{
         width: 90%;
+    }
+    .location-container{
+        text-align: left;
     }
     .main-category{
         margin-left: 15px;
