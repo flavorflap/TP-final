@@ -70,7 +70,7 @@ retrieveItem (search) {
           </Link>
           <div className="info-container">
             <div className="price-container">
-              <span>$ {product.price.amount}</span>
+              <span>$ {product.price.amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</span>
               {parseInt(product.price.decimals) === 0 ? (
                 <sup className="price-decimals">00</sup>
               ) : (

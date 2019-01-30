@@ -55,7 +55,6 @@ a{
 }
 .price-decimals{
     font-size:15px;
-    vertical-align: text-top;
 }
 
 .free-shipping{
@@ -63,7 +62,7 @@ a{
 }
 .title-container{
     text-align: left;
-    width: 35%;
+    width: 40%;
     text-decoration: none;
     font-size: 18px;
 }

@@ -50,7 +50,7 @@ class Detail extends Component {
                             <span className='detail condition-sold-quantity'>{product.condition} - {product.sold_quantity} vendidos</span>
                             <p className='detail product-title'>{product.title}</p>
                             <div className='detail price-container'>
-                                <span className='detail product-price'>$ {product.price.amount}</span>
+                                <span className='detail product-price'>$ {product.price.amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</span>
                                 {(parseInt(product.price.decimals) === 0)?<sup className='detail price-decimals'>00</sup>:<sup className='price-decimals'>{product.price.decimals}</sup>}
                             </div>
                             <button className='detail buy-btn'>Comprar</button>
