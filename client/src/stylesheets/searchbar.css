@@ -20,7 +20,8 @@ body{
     border: 0;
     box-sizing: border-box;
     border-radius: 2px;
-
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .search-icon-container{
