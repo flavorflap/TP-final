@@ -36,8 +36,8 @@ body{
 
 }
 
-@media (max-width: 600px){
+@media (max-width: 800px){
     .search-input{
-        width: 80%;
+        width: 70%;
     }
 }

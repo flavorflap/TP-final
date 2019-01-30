@@ -103,7 +103,7 @@ img.error-image{
 }
 
 
-@media (max-width: 600px){
+@media (max-width: 800px){
     .detail-container{
         width:95%;
     }
