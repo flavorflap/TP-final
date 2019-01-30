@@ -94,10 +94,14 @@
     font-size: 15px;
     color: dimgray;
 }
-.error-message{
-    font-size: 50px;
-    color: red;
+.error-image{
+    width: 100%
 }
+
+img.error-image{
+    width: 100%;
+}
+
 
 @media (max-width: 600px){
     .detail-container{

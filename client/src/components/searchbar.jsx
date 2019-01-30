@@ -23,8 +23,9 @@ class SearchBar extends Component {
         })
     }
     handleOnClick(){
-        const {newSearch} = this.setState
+        const {newSearch} = this.state
         if(newSearch.trim() !== ''){
+            this.props.history.push(`/items?search=${this.state.newSearch}`)
             this.setState({
                 newSearch: ''
             })
@@ -48,11 +49,9 @@ class SearchBar extends Component {
             <div className='search-bar-container'>
                 <Link to='/'><img src={AdaIsoBlanco} className='logo-ada' alt='logo ADA'></img></Link>
                 <input value={this.state.newSearch} type='text' onChange={this.handleOnChangeInput} onKeyPress={this.handleKeyPress} placeholder="Nunca dejes de buscar" className='search-input'/>
-                <Link to={`/items?search=${this.state.newSearch}`}>
-                    <div className='search-icon-container' > 
+                <div className='search-icon-container' onClick={this.handleOnClick} > 
                     <img src={SearchIcon} onClick={this.handleOnClick} alt='search icon' className='search-icon' />
-                    </div>
-                </Link>
+                </div>
             </div>
     
          );

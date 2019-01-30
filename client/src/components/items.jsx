@@ -3,6 +3,7 @@ import "../stylesheets/items.css";
 import IconoEnvio from "../assets/Icono_Envio.png";
 import { Link } from "react-router-dom";
 import queryString from "query-string";
+import errorImage from '../assets/errorimg.png'
 
 class Items extends Component {
   constructor(props) {
@@ -53,8 +54,7 @@ retrieveItem (search) {
     if (this.state.hasError){
         return (
             <div>
-                <p className='error-message'>OOPS! ALGO ANDA MAL! :S <br></br>
-                (yo no fui => 🐀)</p>
+                <img src={errorImage} className='error-image' alt='algo salio mal'></img>
             </div>
             )
     }

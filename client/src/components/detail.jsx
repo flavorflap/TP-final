@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Breadcrumb from './breadcrumb'
 import '../stylesheets/detail.css'
+import errorImage from '../assets/errorimg.png'
 
 class Detail extends Component {
     constructor(props) {
@@ -29,8 +30,7 @@ class Detail extends Component {
         if (this.state.hasError){
             return (
                 <div>
-                    <p className='error-message'>OOPS! ALGO ANDA MAL! :S <br></br>
-                    (yo no fui => 🐀)</p>
+                    <img src={errorImage} className='error-image' alt='algo salio mal'></img>
                 </div>
                 )
         }
