@@ -35,8 +35,6 @@ retrieveItem (search) {
     })
   }
 
-
-  // TODO: Encapsular el fetch en una funcion y llamarla desde componentDidMount y componentWillReceiveProps
   componentWillReceiveProps(nextProps) {
     const q = queryString.parse(nextProps.location.search);
     const { search } = q;
